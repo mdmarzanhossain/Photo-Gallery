@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css/all.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.5.0.js"></script>
+    <script defer src="js/all.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="offset-md-3 col-md-5">
+            <div class="img-section text-center">
+
+            </div>
+
+            <div class="d-flex justify-content-around">
+                <button class="btn-design backward"><i class="icon-style fas fa-step-backward"></i></button>
+                <div>
+                    <button class="btn-design play"><i class="icon-style far fa-play-circle"></i></button>
+                    <button class="btn-design pause"><i class="far fa-pause-circle"></i></button>
+                </div>
+                <button class="btn-design forward"><i class="icon-style fas fa-step-forward"></i></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var click = 0;
+        var allData, interval;
+        $(document).ready(function() {
+            $.ajax({
+                type: "Get",
+                url: "products.json",
+                dataType: "json",
+                success: function(data) {
+                    allData = data;
+                    $('.img-section').html(`<img src="${allData[click].image.url}">`);
+                    //console.log(allData);
+                },
+                error: function(){
+                    alert("json not found");
+                }
+            });
+
+            $('.backward').on('click', function(){
+                clearInterval(interval);
+                if(click === 0){
+                    click = 4;
+                    $('.img-section').html(`<img src="${allData[click].image.url}">`);
+                    console.log(click);
+                }
+                else{
+                    click--;
+                    $('.img-section').html(`<img src="${allData[click].image.url}">`);
+                    console.log(click);
+                }
+            })
+
+            $('.forward').on('click', function(){
+                clearInterval(interval);
+                if(click === 4){
+                    click = 0;
+                    $('.img-section').html(`<img src="${allData[click].image.url}">`);
+                    console.log(click);
+                }
+                else{
+                    click++;
+                    $('.img-section').html(`<img src="${allData[click].image.url}">`);
+                    console.log(click);
+                }
+            })
+
+            $('.pause').on('click',function(){
+                clearInterval(interval);
+            })
+
+            $('.play').on('click', function(){
+                interval = setInterval(function(){
+                    if(click === 4){
+                        click = 0;
+                    $('.img-section').html(`<img src="${allData[click].image.url}">`);
+                    }
+                    else{
+                    click++;
+                    $('.img-section').html(`<img src="${allData[click].image.url}">`);
+                    console.log(click);
+                }
+                },3000)
+            })
+        })
+    </script>
+</body>
+</html>

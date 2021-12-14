@@ -1,0 +1,59 @@
+[
+    {
+        "id": "P101",
+        "name": "Apple",
+        "description":"Garden Fresh Apples",
+        "keywords": ["fresh fruit","red fruit","cheap fruit"],
+        "price": "Tk. 300/Kg",
+        "image":
+            {
+                "url": "./images/apple.png"
+            }
+    },
+    {
+        "id": "P102",
+        "name": "Banana",
+        "description":"Ripe Banana",
+        "price": "Tk. 100/Kg",
+        "image":
+            {
+                "url": "./images/banana.png"
+            }
+    },
+    {
+        "id": "P103",
+        "name": "Mango",
+        "description":"Mangoes from North Bengal",
+        "price": "Tk. 500/Kg",
+        "availability":"Summer",
+        "keywords": ["fresh fruit","delicious fruit"],
+        "image":
+            {
+                "url": "./images/mango.png"
+            }
+    },
+    {
+        "id": "P104",
+        "name": "Strawberry",
+        "description":"Strawberry from China",
+        "price": "Tk. 800/Kg",
+        "availability":"Summer",
+        "keywords": ["fresh fruit","delicious fruit"],
+        "image":
+            {
+                "url": "./images/strawberry.png"
+            }
+    },
+    {
+        "id": "P105",
+        "name": "Grape",
+        "description":"Grapes are fleshy, rounded fruits",
+        "price": "Tk. 300/kg",
+        "availability":"All the year",
+        "keywords": ["fresh fruit","delicious fruit"],
+        "image":
+            {
+                "url": "./images/banana.png"
+            }
+    }
+]
